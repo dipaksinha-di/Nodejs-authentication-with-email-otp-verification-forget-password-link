@@ -3,6 +3,7 @@ import bodyParser from "body-parser"; //use to parse json data
 import cookieParser from "cookie-parser"; //use to handle cookies
 import cors from "cors"; //use to connect backend and frontend
 import dotenv from "dotenv"; //use to handle environment variables
+import dbConnect from "./dbConnect/dbConnect.js";
 
 //app config
 dotenv.config();
@@ -27,6 +28,7 @@ app.get("/", (req, res) => {
 
 //server listener
 const PORT = process.env.PORT || 3800;
+dbConnect();
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
